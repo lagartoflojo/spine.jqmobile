@@ -98,7 +98,7 @@ class Cars extends Spine.JQMobileController
 
   constructor:
     super
-    @el.attr('id', 'car-{@car_id}')
+    @el.attr('id', 'car-#{@car_id}')
     @el.attr('data-role', 'page')
 
     Car.bind('refresh', @render)
