@@ -56,11 +56,11 @@ class App extends Spine.Controller
       "!/car-:id": (params) ->
         @log "opening car #{params.id}"
         @cars ||= []
-        unless(@cars[params.id])
+        unless @cars[params.id]
           @log ' -> it wasn\'t here -- appending'
           @cars[params.id] = new App.Cars(car_id: params.id)
           @manager.add @cars[params.id]
-          @append(@cars[params.id])
+          @append @cars[params.id]
           @log ' -> appended'
         @cars[params.id].active()
 
@@ -98,10 +98,9 @@ class Cars extends Spine.JQMobileController
 
   constructor:
     super
-    @el.attr('id', 'car-#{@car_id}')
-    @el.attr('data-role', 'page')
+    @pageId "car-#{@car_id}"
 
-    Car.bind('refresh', @render)
+    Car.bind 'refresh', @render
     Car.fetch()
 
   render:
@@ -113,7 +112,9 @@ class Cars extends Spine.JQMobileController
 When the Cars controller is instantiated,
 it will only consist of an empty section tag with a 'data-role' of 'page'
 and an 'id' of 'car-X',
-ie. ```<section id='car-2' data-role='page'></section>```.
+ie. ```<section id='car-2' data-role='page'></section>```
+(the data-role attribute is added automatically by JQMobileController and
+the id is set using ```@pageId```).
 This is the only HTML that will be appended to the page by the router in the App controller,
 so it's the only code that will be styled by jQuery Mobile.
 
