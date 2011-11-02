@@ -1,6 +1,6 @@
 # Introduction
-Spine.jQMobile is a set of files that help you get going with
-a jQuery Mobile application using Spine.js.
+Spine.jQMobile is a set of files that help you integrate
+jQuery Mobile and Spine.js.
 
 # Setup
 Include ```jquery-mobile-options``` before including jQuery Mobile,
