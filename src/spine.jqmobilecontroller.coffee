@@ -15,8 +15,7 @@ class Spine.JQMobileController extends Spine.Controller
   constructor: ->
     super
     @bind 'jqm:updatelayout', @_jqmUpdateLayout
-    @el.attr('data-role', 'page')
-
+    @el.attr("data-#{$.mobile.ns}role", 'page')
 
   activate: ->
     $.mobile.changePage(@el)
@@ -26,7 +25,7 @@ class Spine.JQMobileController extends Spine.Controller
     @
 
   isActive: ->
-    @el.hasClass('ui-page-active')
+    @el.hasClass($.mobile.activePageClass)
 
   _jqmUpdateLayout: =>
     @el.page('destroy').page()
