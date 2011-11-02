@@ -1,7 +1,6 @@
 $(document).bind('mobileinit', function(){
   $.mobile.ajaxEnabled = false;
   $.mobile.pushStateEnabled = false;
-  //$.mobile.hashListeningEnabled = true;
 });
 
 $(document).bind( "pagebeforechange", function( e, data ) {
@@ -10,9 +9,10 @@ $(document).bind( "pagebeforechange", function( e, data ) {
     if (DEBUG) console.log(err);
   }
 
-  // Don't do anything when we get a hash.
   debug("in pagebeforechange: " + (typeof data.toPage));
   
+  // Stop the default changePage behavior when the toPage parameter
+  // is a URL (ie. a string).
   if ( typeof data.toPage === "string" ) {
 
     var hash = $.mobile.path.parseUrl( data.toPage ).href;
@@ -21,7 +21,8 @@ $(document).bind( "pagebeforechange", function( e, data ) {
     e.preventDefault();
   } // end string
 
-  // For debugging purposes
+
+  // This is here only for debugging purposes.
   if ( typeof data.toPage === "object" ) {
     jQuery.each(data.toPage, function(i,v){
       debug("in data.toPage is object tag: " + v.tagName);
