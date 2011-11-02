@@ -13,6 +13,7 @@ class Spine.JQMobileController extends Spine.Controller
   constructor: ->
     super
     @bind 'jqm:updatelayout', @_jqmUpdateLayout
+    @el.attr('data-role', 'page')
 
 
   activate: ->
@@ -27,3 +28,6 @@ class Spine.JQMobileController extends Spine.Controller
 
   _jqmUpdateLayout: =>
     @el.page('destroy').page()
+
+  pageId: (el_id) ->
+    @el.attr('id', el_id)
