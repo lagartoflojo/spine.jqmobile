@@ -15,12 +15,15 @@ and along with a Spine.Manager which will handle moving from one page to another
 When you change your page's content dynamically,
 you can trigger the ```jqm:updatelayout``` event to re-style the entire page.
 
+By default, ```jquery-mobile-options``` outputs a lot of useful logging information,
+which you can turn off by setting the ```DEBUG``` variable to ```false```.
+
 # Example
 
 Your ```index.coffee``` file, where your main application controller resides,
 could look like this, assuming you are using Sprockets in a Rails application:
 
-```
+```coffeescript
 #= require json2
 #= require jquery
 #= require jquery-tmpl
@@ -40,7 +43,7 @@ could look like this, assuming you are using Sprockets in a Rails application:
 class App extends Spine.Controller
 
   events:
-    'vclick .show-car': 'showCar'
+    'click .show-car': 'showCar'
 
   @view: (name, item) ->
     $.tmpl("app/views/#{name}", item)
@@ -87,7 +90,7 @@ so that we don't add them again if they've already been loaded.
 
 The Cars controller looks like this:
 
-```
+```coffeescript
 Car = Spine.Car
 
 class Cars extends Spine.JQMobileController
