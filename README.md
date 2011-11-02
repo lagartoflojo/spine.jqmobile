@@ -94,8 +94,6 @@ The Cars controller looks like this:
 Car = Spine.Car
 
 class Cars extends Spine.JQMobileController
-  tag: 'section'
-
   constructor:
     super
     @pageId "car-#{@car_id}"
@@ -113,8 +111,8 @@ When the Cars controller is instantiated,
 it will only consist of an empty section tag with a 'data-role' of 'page'
 and an 'id' of 'car-X',
 ie. ```<section id='car-2' data-role='page'></section>```
-(the data-role attribute is added automatically by JQMobileController and
-the id is set using ```@pageId```).
+(JQMobileController automatically sets the tag to 'section' and data-role to 'page',
+while the id is set using JQMobileController's ```@pageId``` shortcut).
 This is the only HTML that will be appended to the page by the router in the App controller,
 so it's the only code that will be styled by jQuery Mobile.
 
