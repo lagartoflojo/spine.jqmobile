@@ -10,6 +10,8 @@
 # the entire page (for example, after dynamically injecting HTML).
 
 class Spine.JQMobileController extends Spine.Controller
+  tag: 'section'
+
   constructor: ->
     super
     @bind 'jqm:updatelayout', @_jqmUpdateLayout
