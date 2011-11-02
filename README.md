@@ -11,6 +11,8 @@ before your own application code).
 Spine.JQMobileController is meant to be used instead of Spine.Controller
 when the controller's ```@el``` is associated with a ```data-role='page'``` element,
 and along with a Spine.Manager which will handle moving from one page to another.
+JQMobileController extends Spine.Controller,
+so everything works normally.
 
 When you change your page's content dynamically,
 you can trigger the ```jqm:updatelayout``` event to re-style the entire page.
