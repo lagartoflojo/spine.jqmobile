@@ -74,7 +74,7 @@ window.App = App
 
 Note that our App controller extends Spine.Controller,
 as this controller is not associated with a ```data-role='page'``` element,
-and, as you can see below, it's the Cars controller extends Spine.JQMobileController.
+and, as you can see below, it's the Cars controller that extends Spine.JQMobileController.
 
 The route values don't start with a pound (\#),
 but when we call ```@navigate```, we put the pound there.
