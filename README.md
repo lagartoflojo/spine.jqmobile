@@ -1,3 +1,7 @@
+# Notice
+
+2012-03-09: I'm no longer using Spine with jQuery Mobile, so I'm no longer maintaining this repository.
+
 # Introduction
 Spine.jQMobile is a set of files that help you integrate
 jQuery Mobile and Spine.js.
